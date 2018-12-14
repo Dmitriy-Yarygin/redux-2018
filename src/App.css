@@ -1,5 +1,27 @@
 .App {
   text-align: center;
+  margin: 2em;
+}
+.App>* {
+  margin: 1em;
+}
+.List {
+  list-style-type: none;
+}
+.ListItem {
+  max-width: 500px;
+  border: 1px solid brown;
+  margin: 1em;
+  position: relative;
+}
+.title {
+  /* color: blue; */
+  font-weight: bold;
+}
+.ListItem-btnGroup {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .App-logo {
