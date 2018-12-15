@@ -1,10 +1,11 @@
+/*
 import { connect } from 'react-redux';
 import Title from '../components/Title';
-import { editVideo } from '../reducers/videos';
+import { updateTitle } from '../reducers/title';
 
 const mapDispatchToProps = (dispatch) => ({
-        edit: (data) => dispatch( editVideo(data)),
-    }
-);
- 
-export default connect(null, mapDispatchToProps)(Title);
+    editTitle: (titleField, value) => 
+        dispatch(updateTitle(titleField, value)),
+});
+ export default connect(null, mapDispatchToProps)(Title);
+ */

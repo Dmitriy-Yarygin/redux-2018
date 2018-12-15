@@ -1,56 +1,47 @@
-import React, {PureComponent} from 'react';
-import { func } from 'prop-types';
+import React, { PureComponent } from "react";
+import { func } from "prop-types";
 
-const initialValues = { title: '', url: '', tags: '' };
+const initialValues = { title: "", url: "", tags: "" };
+const inputNames = Object.keys(initialValues);
 
 export default class Form extends PureComponent {
-    static propTypes = {
-        add: func.isRequired,
-    };
+  static propTypes = {
+    add: func.isRequired
+  };
 
-    state = initialValues;
+  state = initialValues;
 
-    onChange = (e) => {
-        const { name, value } = e.target;
+  onChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
 
-        this.setState({ [name]: value })
-    };
+  onAdd = () => {
+    this.props.add(this.state);
+    this.reset();
+    this.render();
+  };
 
-    onAdd = () => {
-        this.props.add(this.state);
-        this.reset();
-    };
+  reset = () => {
+    this.setState(initialValues);
+  };
 
-    reset = () => {
-        this.setState(initialValues)
-    };
-
-    render() {
-        return (
-            <div>
-                title:
-                <input
-                    type="text"
-                    name="title"
-                    value={this.state.title}
-                    onChange={this.onChange}
-                />
-                url:
-                <input
-                    type="text"
-                    name="url"
-                    value={this.state.url}
-                    onChange={this.onChange}
-                />
-                tags:
-                <input
-                    type="text"
-                    name="tags"
-                    value={this.state.tags}
-                    onChange={this.onChange}
-                />
-                <button onClick={this.onAdd}>Add</button>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="Form">
+        {inputNames.map( (inputName, i) => (
+          <div key={i} className="Form-input">
+            {inputName}:
+            <input              
+              type="text"
+              name={inputName}
+              value={this.state[inputName]}
+              onChange={this.onChange}
+            />
+          </div>
+        ))}
+        <button className="Form-btnAdd" onClick={this.onAdd}>Add</button>
+      </div>
+    );
+  }
 }
