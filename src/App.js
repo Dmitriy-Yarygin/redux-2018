@@ -1,26 +1,36 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import React, { Component } from "react";
+import { Provider } from "react-redux";
 
-import './App.css';
-import Search from './containers/Search';
-import Form from './containers/Form';
-import List from './containers/List';
+import "./App.css";
+import Search from "./containers/Search";
+import Form from "./containers/Form";
+import List from "./containers/List";
 
-import storeCreator from './store';
+import { loadState, saveState } from "./localStorage";
+import throttle from "lodash/throttle";
+import storeCreator from "./store";
 
-const store = storeCreator();
+const persistedState = loadState();
+const store = storeCreator(persistedState);
+
+store.subscribe(
+  throttle(() => {
+    saveState( { videos: store.getState().videos } );
+    // saveState(store.getState());
+  }, 1000)
+);
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Provider store={store}>
-        <div className='App'>
+        <div className="App">
           <Search />
           <Form />
           <List />
         </div>
       </Provider>
-    )
+    );
   }
 }
 

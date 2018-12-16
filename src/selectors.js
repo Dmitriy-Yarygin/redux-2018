@@ -5,7 +5,7 @@ const searchSelector = state => state.search;
 
 export const filteredVideos = createSelector(
   [videosSelector, searchSelector],
-  (videos, search) =>
+  (videos, search = { title: "", tags: "" } ) =>
     videos.filter(video => {
       const criteriaKeys = Object.keys(search);
       return criteriaKeys.every(criteriaKey => {

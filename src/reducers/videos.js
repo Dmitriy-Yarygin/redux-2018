@@ -3,42 +3,24 @@ const EDIT_VIDEO = "EDIT_VIDEO";
 const REMOVE_VIDEO = "REMOVE_VIDEO";
 
 const INIT = [
-   {
+  {
     id: "1",
-    title: "111",
-    url: "",
-    tags: "aaa bbb"
+    title: "Indila 111",
+    url: "https://youtu.be/DF3XjEhJ40Y",
+    tags: "aaa bbb ccc"
   },
   {
     id: "2",
-    title: "111222",
-    url: "",
+    title: "Indila 1122",
+    url: "https://youtu.be/K5KAc5CoCuk",
     tags: "bbb ccc"
   },
   {
     id: "3",
-    title: "222333",
-    url: "",
-    tags: "ccc ddd"
+    title: "Indila 2233",
+    url: "https://youtu.be/0wdqF5zGQ_c",
+    tags: "ccc aaa"
   }
-  // {
-  //   id: "1",
-  //   title: "Indila",
-  //   url: "https://youtu.be/DF3XjEhJ40Y",
-  //   tags: "12 23 34"
-  // },
-  // {
-  //   id: "2",
-  //   title: "Indila 2",
-  //   url: "https://youtu.be/K5KAc5CoCuk",
-  //   tags: "12 45"
-  // },
-  // {
-  //   id: "3",
-  //   title: "Indila 23",
-  //   url: "https://youtu.be/0wdqF5zGQ_c",
-  //   tags: "34 45"
-  // }
 ];
 
 export default function videosReducer(state = INIT, action) {
