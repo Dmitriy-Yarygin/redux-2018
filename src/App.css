@@ -2,7 +2,14 @@
   text-align: center;
 }
 .Search {
-  margin: 1em 0;
+  margin: 1em;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.Search>div>span {
+  margin: 0 1em;
+  width: 12em;
 }
 .Form {
   position: relative;
@@ -23,6 +30,13 @@
   right: 1em;
   transform: translate(0,-50%);
 }
+.counter {
+  display: block;
+  padding: 0.5em;
+  text-align: right;
+  font-style: italic;
+  font-size: 0.7em;
+}
 .List {
   margin: 0;
   padding: 0;
@@ -33,7 +47,7 @@
 }
 .ListItem {
   border: 1px solid brown;
-  margin: 1em;
+  margin: 0 1em 1em;
   position: relative;
   color: brown;
 }

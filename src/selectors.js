@@ -1,19 +1,24 @@
-import { createSelector } from 'reselect'
+import { createSelector } from "reselect";
 
-const videosSelector = state => state.videos
-const searchSelector = state => state.search
+const videosSelector = state => state.videos;
+const searchSelector = state => state.search;
 
 export const filteredVideos = createSelector(
   [videosSelector, searchSelector],
   (videos, search) =>
     videos.filter(video => {
-      const criteriaKeys = Object.keys(search)
+      const criteriaKeys = Object.keys(search);
       return criteriaKeys.every(criteriaKey => {
-        const criteriaValue = search[criteriaKey]
+        const criteriaValue = search[criteriaKey];
         if (criteriaValue.length < 2) {
-          return true
+          return true;
         }
-        return video[criteriaKey].includes(criteriaValue)
-      })
+        return video[criteriaKey].includes(criteriaValue);
+      });
     })
-)
+);
+
+export const videosCount = createSelector(
+  [videosSelector],
+  videos => videos.length
+);
