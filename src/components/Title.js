@@ -9,22 +9,18 @@ class Title extends PureComponent {
     edit: func.isRequired
   };
 
-  // state = { value: this.props.children }
-
   onChange = (e) => {
-    const { value } = e.target
-    // console.log( value, this.props)
-    // this.setState({ value })
-    this.props.edit('title', value);
+    const { value, name } = e.target
+    this.props.edit(name, value);
   }
 
   render () {
-    // console.log(this.props);
     return (
-      <div className={this.props.className}>
+      <div className="title">  
         {this.props.editMode ? (
           <input
             type='text'
+            name="title" 
             value={ this.props.children }
             onChange={this.onChange}
           />
@@ -37,20 +33,3 @@ class Title extends PureComponent {
 }
 
 export default Title
-
-/*
-return (
-      <div className={this.props.className}>
-        {this.props.editMode ? (
-          <input
-            type='text'
-            value={this.state.value}
-            onChange={this.onChange}
-          />
-        ) : (
-          this.state.value
-        )}
-      </div>
-    )
-
-    */

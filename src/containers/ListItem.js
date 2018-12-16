@@ -8,7 +8,4 @@ const mapDispatchToProps = dispatch => ({
   edit: data => dispatch( editVideo(data) ),
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(ListItem);
+export default connect(null, mapDispatchToProps)(ListItem);

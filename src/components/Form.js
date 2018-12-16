@@ -11,7 +11,7 @@ export default class Form extends PureComponent {
 
   state = initialValues;
 
-  onChange = (e) => {
+  onChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
@@ -29,10 +29,11 @@ export default class Form extends PureComponent {
   render() {
     return (
       <div className="Form">
-        {inputNames.map( (inputName, i) => (
+        {inputNames.map((inputName, i) => (
           <div key={i} className="Form-input">
-            {inputName}:
-            <input              
+            {inputName}
+            <br />
+            <input
               type="text"
               name={inputName}
               value={this.state[inputName]}
@@ -40,7 +41,11 @@ export default class Form extends PureComponent {
             />
           </div>
         ))}
-        <button className="Form-btnAdd" onClick={this.onAdd}>Add</button>
+        <div>
+          <button className="Form-btnAdd" onClick={this.onAdd}>
+            Add
+          </button>
+        </div>
       </div>
     );
   }

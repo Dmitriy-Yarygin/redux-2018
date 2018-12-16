@@ -1,23 +1,31 @@
 .App {
   text-align: center;
-  margin: 2em;
 }
-.App>* {
-  margin: 1em;
+.Search {
+  margin: 1em 0;
 }
 .Form {
+  position: relative;
+  padding-right: 3em;
+  min-width: 320px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  color: white;
+  background-color: brown;
 }
 .Form-input {
-  margin: 0.3em;
-  /* flex-grow: 1; */
+  margin: 0.3em 1em;
 }
 .Form-btnAdd {
-  margin: 0.3em;
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translate(0,-50%);
 }
 .List {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -27,14 +35,30 @@
   border: 1px solid brown;
   margin: 1em;
   position: relative;
+  color: brown;
 }
 .title {
-  padding: 0.5em 0;
+  font-size: 1.2em;
+  font-weight: 800;
+}
+.tags {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tags-hint {
+  font-size: 0.7em;
 }
 .ListItem-btnGroup {
   position: absolute;
   right: 0;
   top: 0;
+}
+.ListItem-btnGroup>*, .tags-btnAdd {
+  color: brown;
+}
+.tags-btnAdd {
+  margin: 0.5em;
 }
 
 .App-logo {

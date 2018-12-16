@@ -3,24 +3,42 @@ const EDIT_VIDEO = "EDIT_VIDEO";
 const REMOVE_VIDEO = "REMOVE_VIDEO";
 
 const INIT = [
-  {
+   {
     id: "1",
-    title: "Indila",
-    url: "https://youtu.be/DF3XjEhJ40Y",
-    tags: "indila"
+    title: "111",
+    url: "",
+    tags: "aaa bbb"
   },
   {
     id: "2",
-    title: "Indila 2",
-    url: "https://youtu.be/K5KAc5CoCuk",
-    tags: "indila"
+    title: "111222",
+    url: "",
+    tags: "bbb ccc"
   },
   {
     id: "3",
-    title: "Indila 23",
-    url: "https://youtu.be/0wdqF5zGQ_c",
-    tags: "indila"
+    title: "222333",
+    url: "",
+    tags: "ccc ddd"
   }
+  // {
+  //   id: "1",
+  //   title: "Indila",
+  //   url: "https://youtu.be/DF3XjEhJ40Y",
+  //   tags: "12 23 34"
+  // },
+  // {
+  //   id: "2",
+  //   title: "Indila 2",
+  //   url: "https://youtu.be/K5KAc5CoCuk",
+  //   tags: "12 45"
+  // },
+  // {
+  //   id: "3",
+  //   title: "Indila 23",
+  //   url: "https://youtu.be/0wdqF5zGQ_c",
+  //   tags: "34 45"
+  // }
 ];
 
 export default function videosReducer(state = INIT, action) {
@@ -32,17 +50,15 @@ export default function videosReducer(state = INIT, action) {
         id: String(Math.random()),
         title: payload.title,
         url: payload.url,
-        tags: payload.tags
+        tags: payload.tags.replace(/^\s+/, "").replace(/\s+$/, "").replace(/\s{2,}/g, " ")
       };
       return [newItem, ...state];
 
     case EDIT_VIDEO:
-      console.log(`EDIT_VIDEO  payload=`);
-      console.log(payload);
       let newState = state.map(item => {
         if (item.id === payload.id) {
           item.title = payload.title;
-          item.tags = payload.tags;
+          item.tags = payload.tags.replace(/^\s+/, "").replace(/\s+$/, "").replace(/\s{2,}/g, " ");
         }
         return item;
       });

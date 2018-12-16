@@ -1,26 +1,36 @@
-import React, { PureComponent } from 'react'
-import { func, string } from 'prop-types'
+import React, { PureComponent } from "react";
+import { func, string } from "prop-types";
 
 export default class Search extends PureComponent {
   static propTypes = {
     searchField: string.isRequired,
     search: func.isRequired
   };
-  state = { value: '' };
+  state = { title: "", tags: "" };
 
   onChange = e => {
-    const { value } = e.target
-    this.setState({ value })
-    this.props.search(this.props.searchField, value)
-  }
+    const { value, name } = e.target;
+    this.setState({ [name]:value });
+    this.props.search(name, value);
+  };
 
-  render () {
+  render() {
     return (
-      <input 
-        type='text' 
-        value={this.state.value} 
-        onChange={this.onChange} 
-      />
-    )
+      <div className="Search">
+        Search by title:
+        <input 
+          type="text" 
+          name="title" 
+          value={this.state.title} 
+          onChange={this.onChange} 
+        />
+        by tags:
+        <input 
+          type="text" 
+          name="tags" 
+          value={this.state.tags} 
+          onChange={this.onChange} />
+      </div>
+    );
   }
 }
