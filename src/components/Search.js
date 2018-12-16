@@ -3,7 +3,6 @@ import { func, string } from "prop-types";
 
 export default class Search extends PureComponent {
   static propTypes = {
-    searchField: string.isRequired,
     search: func.isRequired
   };
   state = { title: "", tags: "" };
